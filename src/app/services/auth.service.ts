@@ -47,6 +47,22 @@ export class AuthService  {
         })
       );
   }
+  projet(sujet, description) {
+    return this.httpClient
+      .post<any>(`${environment.apiUrl}/projet`, { sujet, description })
+      .pipe(
+        map(userData => {
+          sessionStorage.setItem("sujet", userData.sujet);
+          sessionStorage.setItem("description", userData.description);
+          let tokenStr = "Bearer " + userData.token;
+          console.log(tokenStr);
+          sessionStorage.setItem("token", tokenStr);
+          sessionStorage.setItem("role", userData.role);
+          sessionStorage.setItem("id", userData.id);
+          return userData;
+        })
+      );
+  }
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem("email");

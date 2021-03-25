@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
       numTel :[''],
       nom :[''],
       prenom :[''],
-      role :[''],
       email : [''],
       password :[''], 
       login :[''],
@@ -50,7 +49,7 @@ export class RegisterComponent implements OnInit {
                                 this.RegisterForm.value.numTel,
                                 this.RegisterForm.value.nom,
                                 this.RegisterForm.value.prenom,
-                                this.RegisterForm.value.role,
+                                "ETUDIANT",
                                 this.RegisterForm.value.email,
                                 this.RegisterForm.value.password,
                                 this.RegisterForm.value.login)

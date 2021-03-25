@@ -4,27 +4,26 @@
             <strong>Projet Memoire</strong>
         </div>
         <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+            <form [formGroup]='EtudiantForm' (ngSubmit)= 'onSubmit()' >
 
                 <div class="form-group row">
-                    <label class="col-md-3 col-form-label" for="text-input">Sujet du memoire</label>
+                    <label class="col-md-3 col-form-label" for="sujet">Sujet du memoire</label>
                     <div class="col-md-9">
-                        <input type="text" id="text-input" name="text-input" class="form-control" placeholder="Text">
+                        <input type="text" id="sujet" class="form-control" placeholder="">
                     </div>
                     <div> 
                         <br><br><br> 
                     </div>
-                    <label class="col-md-3 col-form-label" for="textarea-input">Description</label>
+                    <label class="col-md-3 col-form-label" for="description">Description</label>
                     <div class="col-md-9">
-                        <textarea id="textarea-input" name="textarea-input" rows="9" class="form-control"
-                            placeholder="Content.."></textarea>
+                        <textarea rows="9" class="form-control" id="description"
+                            placeholder=""></textarea>
                     </div>
                 </div>
             </form>
         </div>
         <div class="card-footer">
-            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
-            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+            <button type="submit" class="btn btn-primary px-4"> Envoyer </button>
         </div>
     </div>
 </div>
