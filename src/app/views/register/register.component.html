@@ -5,46 +5,74 @@
         <div class="col-md-6 mx-auto">
           <div class="card mx-4">
             <div class="card-body p-4">
-              <form>
-                <h1>Register</h1>
-                <p class="text-muted">Create your account</p>
+              <form [formGroup]='RegisterForm' (ngSubmit)= 'onSubmit()'>
+                <h1>Inscription</h1>
+                <p class="text-muted">Créez votre compte</p>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-note"></i></span>
+                  </div>
+                  <input type="text" formControlName="nom" class="form-control" placeholder="Nom" autocomplete="nom" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-note"></i></span>
+                  </div>
+                  <input type="text" formControlName="prenom" class="form-control" placeholder="Prenoms" autocomplete="prenom" required>
+                </div><div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-calendar"></i></span>
+                  </div>
+                  <input type="datetime" formControlName="dateNaissance" class="form-control" placeholder="Date de naisance ( A-M-J )" autocomplete="dateNaissance" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-badge"></i></span>
+                  </div>
+                  <input type="text" formControlName="role" class="form-control" placeholder="Role" autocomplete="role" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-graduation"></i></span>
+                  </div>
+                  <input type="text" formControlName="classe" class="form-control" placeholder="Classe" autocomplete="classe" required>
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icon-phone"></i></span>
+                  </div>
+                  <input type="number" formControlName="numTel" class="form-control" placeholder="Tel" autocomplete="numTel" required>
+                </div>
+                
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Username" autocomplete="username" required>
+                  <input type="text" formControlName="login" class="form-control" placeholder="Login" autocomplete="login" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@</span>
                   </div>
-                  <input type="text" class="form-control" placeholder="Email" autocomplete="email" required>
+                  <input type="text" formControlName="email" class="form-control" placeholder="Email" autocomplete="email" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                  <input type="password" formControlName="password" class="form-control" placeholder="Mot de pass" autocomplete="new-password" required>
                 </div>
                 <div class="input-group mb-4">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-lock"></i></span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Repeat password" autocomplete="new-password" required>
+                  <input type="password" class="form-control" placeholder="Repeter le mot de pass" autocomplete="new-password" required>
                 </div>
-                <button type="button" class="btn btn-block btn-success">Create Account</button>
+                <button type="submit" class="btn btn-block btn-success">Créer Compte</button>
               </form>
             </div>
-            <div class="card-footer p-4">
-              <div class="row">
-                <div class="col-6">
-                  <button class="btn btn-block btn-facebook" type="button"><span>facebook</span></button>
-                </div>
-                <div class="col-6">
-                  <button class="btn btn-block btn-twitter" type="button"><span>twitter</span></button>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

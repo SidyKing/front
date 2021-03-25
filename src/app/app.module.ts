@@ -46,6 +46,9 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
+import { EtudiantComponent } from './views/etudiant/etudiant.component';
+import { EtudiantModule } from './views/etudiant/etudiant.module';
+import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 
 @NgModule({
   imports: [
@@ -67,6 +70,7 @@ import { ChartsModule } from 'ng2-charts';
     ChartsModule,
     IconModule,
     IconSetModule.forRoot(),
+    EtudiantModule,
   ],
   declarations: [
     AppComponent,
@@ -74,7 +78,9 @@ import { ChartsModule } from 'ng2-charts';
     P404Component,
     P500Component,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EtudiantComponent,
+    ForgetPasswordComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass : BasicAuthInterceptorService , multi:true},

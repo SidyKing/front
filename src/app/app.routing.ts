@@ -7,12 +7,13 @@ import { DefaultLayoutComponent } from './containers';
 import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
+import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 import { RegisterComponent } from './views/register/register.component';
 
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {
@@ -37,6 +38,13 @@ export const routes: Routes = [
     }
   },
   {
+    path: 'forget-password',
+    component: ForgetPasswordComponent,
+    data: {
+      title: 'Forget Password Page'
+    }
+  },
+  {
     path: 'register',
     component: RegisterComponent,
     data: {
@@ -50,6 +58,10 @@ export const routes: Routes = [
       title: 'Home'
     },
     children: [
+      {
+        path: 'etudiant',
+        loadChildren: () => import('./views/etudiant/etudiant.module').then(m => m.EtudiantModule)
+      },
       {
         path: 'base',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)

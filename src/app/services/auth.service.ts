@@ -26,6 +26,27 @@ export class AuthService  {
         })
       );
   }
+  Register(classe, dateNaissance, numTel, nom, prenom, role, email, password, login) {
+    return this.httpClient
+      .post<any>(`${environment.apiUrl}/etudiant`, { classe, dateNaissance, numTel, nom, prenom, role, email, password, login })
+      .pipe(
+        map(userData => {
+          sessionStorage.setItem("email", userData.email);
+          let tokenStr = "Bearer " + userData.token;
+          console.log(tokenStr);
+          sessionStorage.setItem("token", tokenStr);
+          sessionStorage.setItem("role", userData.role);
+          sessionStorage.setItem("classe", userData.classe);
+          sessionStorage.setItem("dateNaissance", userData.dateNaissance);
+          sessionStorage.setItem("numTel", userData.numTel);
+          sessionStorage.setItem("nom", userData.nom);
+          sessionStorage.setItem("prenom", userData.prenom);
+          sessionStorage.setItem("login", userData.login);
+          sessionStorage.setItem("id", userData.id);
+          return userData;
+        })
+      );
+  }
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem("email");

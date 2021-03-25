@@ -43,8 +43,8 @@ export class LoginComponent implements OnInit {
         resultat => { 
           console.log({resultat: resultat})
           this.submitted = false;
-          this.router.navigate(['/register']);
-          console.log('Après redirection')
+          this.router.navigate(['/etudiant']);
+          
         },
         error =>{
           console.log(error);
