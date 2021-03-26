@@ -35,9 +35,18 @@ export class AuthService  {
         })
       );
   }
-  projet(sujet, description) {
+  projet(sujet, description, etudiant) {
     return this.httpClient
-      .post<any>(`${environment.apiUrl}/projet`, { sujet, description })
+      .post<any>(`${environment.apiUrl}/projet`, { sujet, description, etudiant })
+      .pipe(
+        map(userData => {
+          return userData;
+        })
+      );
+  }
+  uploadMemoire(fichier) {
+    return this.httpClient
+      .post<any>(`${environment.apiUrl}/upload-memoire`, { fichier })
       .pipe(
         map(userData => {
           return userData;

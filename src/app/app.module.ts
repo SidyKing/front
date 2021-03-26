@@ -49,6 +49,7 @@ import { ChartsModule } from 'ng2-charts';
 import { EtudiantComponent } from './views/etudiant/etudiant.component';
 import { EtudiantModule } from './views/etudiant/etudiant.module';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 @NgModule({
   imports: [
@@ -80,7 +81,8 @@ import { ForgetPasswordComponent } from './views/forget-password/forget-password
     LoginComponent,
     RegisterComponent,
     EtudiantComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    AdminComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass : BasicAuthInterceptorService , multi:true},
