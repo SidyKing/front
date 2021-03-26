@@ -50,6 +50,7 @@ import { EtudiantComponent } from './views/etudiant/etudiant.component';
 import { EtudiantModule } from './views/etudiant/etudiant.module';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 import { AdminComponent } from './views/admin/admin.component';
+import { AdminModule } from './views/admin/admin.module';
 
 @NgModule({
   imports: [
@@ -72,6 +73,7 @@ import { AdminComponent } from './views/admin/admin.component';
     IconModule,
     IconSetModule.forRoot(),
     EtudiantModule,
+    AdminModule,
   ],
   declarations: [
     AppComponent,

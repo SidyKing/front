@@ -2,6 +2,7 @@ import { environment } from '../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Etudiant }from '../models/etudiant';
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,19 @@ export class AuthService  {
           return userData;
         })
       );
+  }
+  AllEtudiants: Etudiant[] = [];
+  ListeEtudiant() {
+    return this.httpClient
+      .get<any>(`${environment.apiUrl}/etudiant`)
+      .subscribe(
+        data => {
+        this.AllEtudiants = data;
+        },
+        err => {
+          console.log(err);
+        }
+      )
   }
 
   isUserLoggedIn() {
