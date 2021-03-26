@@ -9,21 +9,22 @@
                 <div class="form-group row">
                     <label class="col-md-3 col-form-label" for="sujet">Sujet du memoire</label>
                     <div class="col-md-9">
-                        <input type="text" id="sujet" name="sujet" class="form-control" placeholder="">
+                        <input type="text" id="sujet" formControlName="sujet" class="form-control" placeholder="">
                     </div>
                     <div> 
                         <br><br><br> 
                     </div>
                     <label class="col-md-3 col-form-label" for="description">Description</label>
                     <div class="col-md-9">
-                        <textarea rows="9" class="form-control" id="description" name="description"
+                        <textarea rows="9" class="form-control" id="description" formControlName="description"
                             placeholder=""></textarea>
                     </div>
                 </div>
+                <div >
+                    <button type="submit" class="btn btn-primary px-4"> Envoyer </button>
+                </div>
             </form>
         </div>
-        <div class="card-footer">
-            <button type="submit" class="btn btn-primary px-4"> Envoyer </button>
-        </div>
+        
     </div>
 </div>
