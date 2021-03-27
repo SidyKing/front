@@ -59,7 +59,6 @@ import { AdminModule } from './views/admin/admin.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     AppAsideModule,
-    FormsModule,
     AppBreadcrumbModule.forRoot(),
     AppFooterModule,
     FormsModule,
