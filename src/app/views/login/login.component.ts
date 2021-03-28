@@ -33,26 +33,32 @@ export class LoginComponent implements OnInit {
   get value(){
     return this.loginForm.controls;
   }
-  onSubmit(){
-    this.submitted =true;
-    if(this.loginForm.invalid){
-      return ;
-    }else{
-      console.log(this.loginForm.value.email,this.loginForm.value.password);
-      this.authService.authenticate(this.loginForm.value.email,this.loginForm.value.password).subscribe(
-        resultat => { 
-          console.log({resultat: resultat})
-          this.submitted = false;
+  onSubmit() {
+    if (this.loginForm.invalid) {
+      return;
+    } else {
+      this.authService.authenticate(this.loginForm.value.email, this.loginForm.value.password).subscribe(
+        results=>{
+          if (results.email) {
+            console.log('role:'+results.role);
+          let tokenStr = "Bearer " + results.token;
+          console.log(tokenStr);
+          sessionStorage.setItem("token", tokenStr);
+          sessionStorage.setItem("role", results.role);
+          sessionStorage.setItem("id", results.id);
+          sessionStorage.setItem("email", results.email);
           this.router.navigate(['/etudiant']);
-          
+          }else{
+            this.message="Login et/ou mot de passe incorrect !"
+          }
         },
-        error =>{
+        error=>{
           console.log(error);
-          this.message = 'email ou mot de passe incorrect';
+          this.message="Login et/ou mot de passe incorrect !"
         }
       )
+      
     }
-  
   }
 
 }
