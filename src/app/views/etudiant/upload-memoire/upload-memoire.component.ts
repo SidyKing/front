@@ -31,7 +31,7 @@ export class UploadMemoireComponent implements OnInit {
 
   ngOnInit(): void {
     this.uploadMemoireForm = this.formBuilder.group({
-      image: [''],
+      image: [null],
       hdie :['rien']
     })
   }
