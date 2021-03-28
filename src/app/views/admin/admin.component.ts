@@ -10,7 +10,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './admin.component.html',
 })
 export class AdminComponent implements OnInit {
-  AllEtudiants;
+  allEtudiants;
   adminForm : FormGroup;
   submitted = false;
   returnUrl : string;
@@ -26,8 +26,9 @@ export class AdminComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.authService.ListeEtudiant() ;
-    this.AllEtudiants = this.authService.AllEtudiants;
+    this.authService.listeEtudiant().subscribe(data => {
+      this.allEtudiants = data;
+    }) ;
     }
 
 }

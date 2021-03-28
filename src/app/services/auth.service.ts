@@ -54,18 +54,10 @@ export class AuthService  {
         })
       );
   }
-  AllEtudiants: Etudiant[] = [];
-  ListeEtudiant() {
+  
+  listeEtudiant() {
     return this.httpClient
-      .get<any>(`${environment.apiUrl}/etudiant`)
-      .subscribe(
-        data => {
-        this.AllEtudiants = data;
-        },
-        err => {
-          console.log(err);
-        }
-      )
+      .get<any>(`${environment.apiUrl}/etudiant`);
   }
 
   isUserLoggedIn() {

@@ -44,7 +44,7 @@ export class EtudiantComponent implements OnInit {
         resultat => { 
           console.log({resultat: resultat})
           this.submitted = false;
-          this.router.navigate(['/etudiant/upload-memoire']);
+          //this.router.navigate(['/etudiant/upload-memoire']);
           
         },
         error =>{

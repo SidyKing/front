@@ -67,6 +67,10 @@
           <h2>Uploader votre memoire </h2>
           <input type="file" formControlName="image" class="form-control" (change)="onChange($event)">
         </div>
+        <div class="form-group files color" hidden>
+          <h2>Hidden </h2>
+          <input type="text" formControlName="hide" class="form-control">
+        </div>
         <div>
           <button type="submit" class="btn btn-primary px-4"> Soumettre </button>
         </div>
