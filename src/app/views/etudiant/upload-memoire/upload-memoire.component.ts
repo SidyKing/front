@@ -45,7 +45,7 @@ export class UploadMemoireComponent implements OnInit {
     //   const file = event.target.files[0];
     //   this.patientForm.get('uploadImg').setValue(file);
     // }
-    console.log("commence");
+    console.log("commence ici");
     if (event.target.files[0]) {
       this.fileSelected = event.target.files[0] as File;
       const reader = new FileReader();
