@@ -22,12 +22,13 @@ export class AdminComponent implements OnInit {
     private router : Router,
     private authService : AuthService,
   ) { 
-
+   
 
   }
   ngOnInit(): void {
     this.authService.listeEtudiant().subscribe(data => {
       this.allEtudiants = data;
+      
     }) ;
     }
 
