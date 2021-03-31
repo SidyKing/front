@@ -1,3 +1,4 @@
+import { AuthService } from './../../../services/auth.service';
 import {AfterViewChecked, Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {CollapseDirective} from 'ngx-bootstrap/collapse';
 
@@ -13,13 +14,14 @@ export class NavbarsComponent implements OnInit, AfterViewChecked {
     this._isCollapsed = value;
   }
   get isCollapsed() {
-    if (this.collapseRef) {
-      // temp fix for "overflow: hidden"
-      if (getComputedStyle(this.collapseRef.nativeElement).getPropertyValue('display') === 'flex') {
-       this.renderer.removeStyle(this.collapseRef.nativeElement, 'overflow');
+      if (this.collapseRef) {
+        // temp fix for "overflow: hidden"
+        if (getComputedStyle(this.collapseRef.nativeElement).getPropertyValue('display') === 'flex') {
+         this.renderer.removeStyle(this.collapseRef.nativeElement, 'overflow');
+        }
       }
-    }
-    return this._isCollapsed;
+      return this._isCollapsed;
+    
   }
 
   @ViewChild(CollapseDirective, { read: ElementRef, static: false }) collapse !: CollapseDirective;

@@ -6,7 +6,8 @@ let role= sessionStorage.getItem("role");
   templateUrl: './default-layout.component.html'
 })
 export class DefaultLayoutComponent {
-  public sidebarMinimized = false;
+  private userRole = localStorage.getItem("role");
+  public sidebarMinimized = (this.userRole == "ETUDIANT")? true:false;
   public navItems = navItems;
   public role = role;
   toggleMinimize(e) {
