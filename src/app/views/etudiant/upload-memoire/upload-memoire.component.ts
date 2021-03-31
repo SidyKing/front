@@ -1,5 +1,4 @@
 import { UploadService } from './../../../services/upload-memoire/upload.service';
-import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -32,7 +31,7 @@ export class UploadMemoireComponent implements OnInit {
   ngOnInit(): void {
     this.uploadMemoireForm = this.formBuilder.group({
       image: [null],
-      hdie :['rien']
+      hide :['rien']
     })
   }
   get value() {
@@ -57,14 +56,14 @@ export class UploadMemoireComponent implements OnInit {
     }
   }
 
-  onSubmit() {
+  envoyer() {
     this.submitted = true;
     console.log("Bienvenue")
     if (this.uploadMemoireForm.invalid) {
       console.log("Erreur d'upload")
       return;
     } else {
-      if (this.fileSelected) {
+      if (!this.fileSelected) {
         const body = new FormData();
         body.append('fichier', this.fileSelected, this.fileSelected.name)
         body.append('idProj', '603c100c99ca52503893c721');

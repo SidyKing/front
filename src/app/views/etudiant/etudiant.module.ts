@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { EtudiantRoutingModule } from './etudiant-routing.module';
 import { UploadMemoireComponent } from './upload-memoire/upload-memoire.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [UploadMemoireComponent],
   imports: [
-    CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     EtudiantRoutingModule
   ]
 })
