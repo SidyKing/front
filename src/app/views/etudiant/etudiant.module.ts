@@ -5,6 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+/* 
+  HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+*/
+
 @NgModule({
   declarations: [UploadMemoireComponent],
   imports: [
