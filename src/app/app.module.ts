@@ -51,6 +51,8 @@ import { EtudiantModule } from './views/etudiant/etudiant.module';
 import { ForgetPasswordComponent } from './views/forget-password/forget-password.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { AdminModule } from './views/admin/admin.module';
+import { ProfesseurComponent } from './views/professeur/professeur.component';
+import { ProfesseurModule } from './views/professeur/professeur.module';
 
 @NgModule({
   imports: [
@@ -73,6 +75,7 @@ import { AdminModule } from './views/admin/admin.module';
     IconSetModule.forRoot(),
     EtudiantModule,
     AdminModule,
+    ProfesseurModule,
   ],
   declarations: [
     AppComponent,
@@ -83,7 +86,8 @@ import { AdminModule } from './views/admin/admin.module';
     RegisterComponent,
     EtudiantComponent,
     ForgetPasswordComponent,
-    AdminComponent
+    AdminComponent,
+    ProfesseurComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass : BasicAuthInterceptorService , multi:true},

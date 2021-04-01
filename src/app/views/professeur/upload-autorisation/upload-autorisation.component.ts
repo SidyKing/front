@@ -1,15 +1,15 @@
-import { UploadService } from './../../../services/upload-memoire/upload.service';
+import { UploadService } from './../../../services/upload-autorisation/upload.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-upload-memoire',
-  templateUrl: './upload-memoire.component.html'
+  selector: 'app-upload-autorisation',
+  templateUrl: './upload-autorisation.component.html',
 })
-export class UploadMemoireComponent implements OnInit {
-  uploadMemoireForm: FormGroup;
+export class UploadAutorisationComponent implements OnInit {
+  uploadAutorisationForm: FormGroup;
   fileSelected: File;
   imageUrl: any;
   submitted = false;
@@ -24,18 +24,18 @@ export class UploadMemoireComponent implements OnInit {
 
   ) {
 
-    const etudiant = sessionStorage.getItem("id");
+    const professeur = sessionStorage.getItem("id");
 
   }
 
   ngOnInit(): void {
-    this.uploadMemoireForm = this.formBuilder.group({
+    this.uploadAutorisationForm = this.formBuilder.group({
       image: [null],
       hide :['rien']
     })
   }
   get value() {
-    return this.uploadMemoireForm.controls;
+    return this.uploadAutorisationForm.controls;
   }
 
   // Onchange
@@ -59,7 +59,7 @@ export class UploadMemoireComponent implements OnInit {
   envoyer() {
     this.submitted = true;
     console.log("Bienvenue")
-    if (this.uploadMemoireForm.invalid) {
+    if (this.uploadAutorisationForm.invalid) {
       console.log("Erreur d'upload")
       return;
     } else {
@@ -69,7 +69,7 @@ export class UploadMemoireComponent implements OnInit {
         body.append('idProj', '603c100c99ca52503893c721');
         this.uploadService.upload(body).subscribe(result => {
           console.log(result);
-          this.router.navigate(['/upload-memoire']);
+          this.router.navigate(['/dashboard']);
         }, error => {
 
         });

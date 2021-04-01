@@ -59,6 +59,10 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'professeur',
+        loadChildren: () => import('./views/professeur/professeur.module').then(m => m.ProfesseurModule)
+      },
+      {
         path: 'etudiant',
         loadChildren: () => import('./views/etudiant/etudiant.module').then(m => m.EtudiantModule)
       },
