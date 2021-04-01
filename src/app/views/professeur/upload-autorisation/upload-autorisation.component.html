@@ -62,7 +62,7 @@
   <div class="container justify-content-center">
     <div class="row">
       <div class="col-md-6 ">
-        <form formGroup='uploadAutorisationForm' (ngSubmit)='envoyer()' enctype="multipart/form-data">
+        <form [formGroup]='uploadAutorisationForm' (ngSubmit)='envoyer()' enctype="multipart/form-data">
           <div class="form-group files color">
             <h2>Uploader une Autorisation </h2>
             <input type="file" formControlName="image" class="form-control" (change)="onChange($event)">
