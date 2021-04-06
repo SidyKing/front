@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfesseurRoutingModule } from './professeur-routing.module';
 import { UploadAutorisationComponent } from './upload-autorisation/upload-autorisation.component';
 import { UploadRapportComponent } from './upload-rapport/upload-rapport.component';
@@ -10,7 +11,10 @@ import { UploadRapportComponent } from './upload-rapport/upload-rapport.componen
   declarations: [UploadAutorisationComponent, UploadRapportComponent],
   imports: [
     CommonModule,
-    ProfesseurRoutingModule
+    ProfesseurRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ProfesseurModule { }

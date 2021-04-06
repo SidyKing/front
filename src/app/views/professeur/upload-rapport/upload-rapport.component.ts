@@ -68,7 +68,7 @@ export class UploadRapportComponent implements OnInit {
         body.append('idProj', '603c100c99ca52503893c721');
         this.uploadService.upload(body).subscribe(result => {
           console.log(result);
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/professeur/upload-rapport']);
         }, error => {
 
         });
