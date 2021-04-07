@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
+import { AjoutRapporteurComponent } from './ajout-rapporteur/ajout-rapporteur.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,13 @@ const routes: Routes = [
         component: AdminComponent,
         data: {
           title: 'admin'
+        }
+      },
+      {
+        path: 'ajout-rapporteur',
+        component: AjoutRapporteurComponent,
+        data: {
+          title: 'ajout-rapporteur'
         }
       },
     ]
