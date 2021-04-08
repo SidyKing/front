@@ -17,7 +17,7 @@
               </tr>
             </thead>
             <tbody *ngFor="let etudiant of allEtudiants" >
-              <tr *ngIf="allEtudiants.classe==this.classe">
+              <tr *ngIf="etudiant.classe===classe">
                 <td>{{etudiant.nom}}</td>
                 <td>{{etudiant.prenom}}</td>
                 <td>{{etudiant.numTel}}</td>
