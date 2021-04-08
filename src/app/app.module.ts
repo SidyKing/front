@@ -53,6 +53,8 @@ import { AdminComponent } from './views/admin/admin.component';
 import { AdminModule } from './views/admin/admin.module';
 import { ProfesseurComponent } from './views/professeur/professeur.component';
 import { ProfesseurModule } from './views/professeur/professeur.module';
+import { RespFormComponent } from './views/resp-form/resp-form.component';
+import { RespFormModule } from './views/resp-form/resp-form.module';
 
 @NgModule({
   imports: [
@@ -76,6 +78,7 @@ import { ProfesseurModule } from './views/professeur/professeur.module';
     EtudiantModule,
     AdminModule,
     ProfesseurModule,
+    RespFormModule,
   ],
   declarations: [
     AppComponent,
@@ -87,7 +90,8 @@ import { ProfesseurModule } from './views/professeur/professeur.module';
     EtudiantComponent,
     ForgetPasswordComponent,
     AdminComponent,
-    ProfesseurComponent
+    ProfesseurComponent,
+    RespFormComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass : BasicAuthInterceptorService , multi:true},

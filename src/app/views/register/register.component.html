@@ -31,12 +31,31 @@
                   </div>
                   <input type="datetime" formControlName="dateNaissance" class="form-control" placeholder="Date de naisance ( Année -Mois- Jour )" autocomplete="dateNaissance" required>
                 </div>
-               
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="icon-graduation"></i></span>
+            
+                <div class="form-group row">
+                  <div class="col-md-9">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-graduation"></i></span>
+                      <select id="select1" formControlName="classe" class="form-control">
+                        <option value="">-- Choisissez une classe --</option>
+                        <option value="L3 D2A">L3 D2A</option>
+                        <option value="L3 SRT">L3 SRT</option>
+                        <option value="L3 MATHS">L3 MATHS</option>
+                        <option value="L3 PC">L3 PC</option>
+                        <option value="L3 PN">L3 PN</option>
+                        <option value="M2 MIER">M2 MIER</option>
+                        <option value="M2 MATHS PROBA">M2 MATHS PROBA</option>
+                        <option value="M2 MATHS ANALYSE">M2 MATHS ANALYSE</option>
+                        <option value="M2 SID">M2 SID</option>
+                        <option value="M2 CHIMIE INORGA">M2 CHIMIE INORGA</option>
+                        <option value="M2 CHIMIE PHYSIQUE">M2 CHIMIE PHYSIQUE</option>
+                        <option value="M2 SI">M2 SI</option>
+                        <option value="M2 SR">M2 SR</option>
+
+                      </select>
+                    </div>
+                   
                   </div>
-                  <input type="text" formControlName="classe" class="form-control" placeholder="Classe" autocomplete="classe" required>
                 </div>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
@@ -44,7 +63,6 @@
                   </div>
                   <input type="number" formControlName="numTel" class="form-control" placeholder="Tel" autocomplete="numTel" required>
                 </div>
-                
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icon-user"></i></span>

@@ -71,6 +71,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/admin/admin.module').then(m => m.AdminModule)
       },
       {
+        path: 'resp-form',
+        loadChildren: () => import('./views/resp-form/resp-form.module').then(m => m.RespFormModule)
+      },
+      {
         path: 'base',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule)
       },

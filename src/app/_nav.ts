@@ -56,5 +56,18 @@ export const navItems: INavData[] = [
         icon: 'icon-star'
       }
     ]
-  }
+  },
+    {
+      name: 'Responsable formation',
+      url: '/resp-form',
+      icon: 'icon-puzzle',
+      children: [
+        {
+          name: 'Classes Memoire',
+          url: '/resp-form',
+          icon: 'icon-star',
+          
+        },
+      ]
+    },
 ];
