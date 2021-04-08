@@ -59,6 +59,10 @@ export class AuthService  {
     return this.httpClient
       .get<any>(`${environment.apiUrl}/etudiant`);
   }
+  listeProfesseur() {
+    return this.httpClient
+      .get<any>(`${environment.apiUrl}/professeur`);
+  }
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem("email");
