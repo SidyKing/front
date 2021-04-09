@@ -1,7 +1,7 @@
 
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
@@ -26,14 +26,18 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBulder.group({
-      email : [''],
-      password :['']
+      email : ['',Validators.required],
+      password :['',Validators.required]
     })
   }
+  get f() { return this.loginForm.controls; }
+
   get value(){
     return this.loginForm.controls;
   }
   onSubmit() {
+    this.submitted =true;
+
     if (this.loginForm.invalid) {
       return;
     } else {
