@@ -4,7 +4,17 @@
         <div class="card-header">
           <i class="fa fa-align-justify"></i> Liste des Etudiants {{classe}}
         </div>
+        
         <div class="card-body">
+          <div class="form-group row">
+            <div class="col-md-12">
+          <div class="input-group">
+            <span class="input-group-prepend">
+              <button type="button" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+            </span>
+            <input type="text" id="input1-group2" name="input1-group2" [(ngModel)]="searchText" class="form-control" placeholder="Recherche rapide ...">
+          </div>
+            </div></div>
           <table class="table table-bordered table-striped table-sm">
             <thead>
               <tr >
@@ -16,8 +26,8 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody *ngFor="let etudiant of allEtudiants" >
-              <tr *ngIf="etudiant.classe===classe">
+            <tbody *ngFor="let etudiant of allEtudiants | orderBy:'nom' | filter:searchText" >
+              <tr *ngIf="etudiant.classe===classe ">
                 <td>{{etudiant.nom}}</td>
                 <td>{{etudiant.prenom}}</td>
                 <td>{{etudiant.numTel}}</td>
@@ -34,3 +44,4 @@
     </div>
     <!--/.col-->
   </div>
+  

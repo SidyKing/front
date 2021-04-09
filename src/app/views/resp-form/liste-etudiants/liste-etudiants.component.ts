@@ -1,16 +1,17 @@
-
-
 import { error } from '@angular/compiler/src/util';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, VERSION } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
+import { OrderByPipe } from '../../../order-by.pipe';
 
 @Component({
   selector: 'app-liste-etudiants',
   templateUrl: './liste-etudiants.component.html',
 })
 export class ListeEtudiantsComponent implements OnInit {
+  nom = 'Angular ' + VERSION.major;
+  searchText;
   allEtudiants;
   adminForm : FormGroup;
   submitted = false;

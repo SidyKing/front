@@ -26,6 +26,7 @@ export class AjoutRapporteurComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    
     this.authService.listeProfesseur().subscribe(data => {
       this.allProfesseurs = data;
       

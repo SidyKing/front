@@ -1,8 +1,9 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { MustMatch } from '../../services/_helpers/must-match.validator';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,24 +23,31 @@ export class RegisterComponent implements OnInit {
   ) { 
 
   }
+  
 
   ngOnInit(): void {
     this.RegisterForm = this.formBulder.group({
-      classe :[''],
-      dateNaissance :[''],
-      numTel :[''],
-      nom :[''],
-      prenom :[''],
-      email : [''],
-      password :[''], 
-      login :[''],
-    })
-  }
+      classe :['',Validators.required],
+      dateNaissance :['',Validators.required],
+      numTel :['',[Validators.required, Validators.maxLength(9)]],
+      nom :['',Validators.required],
+      prenom :['',Validators.required],
+      email : ['',[Validators.required, Validators.email]],
+      password :['',[Validators.required, Validators.minLength(6)]], 
+      confirmPassword:['',Validators.required],
+      login :['',Validators.required],
+    }, {validator: MustMatch('password', 'confirmPassword')})
+
+ }
+  get f() { return this.RegisterForm.controls; }
+
+
   get value(){
     return this.RegisterForm.controls;
   }
   onSubmit(){
     this.submitted =true;
+    
     if(this.RegisterForm.invalid){
       return ;
     }else{
@@ -65,8 +73,14 @@ export class RegisterComponent implements OnInit {
                           this.message = 'email ou mot de passe incorrect';
                         }
                       )
+                      alert('inscription reussie');
+ 
     }
   
   }
+  onReset() {
+    this.submitted = false;
+    this.RegisterForm.reset();
+}
 
 }
