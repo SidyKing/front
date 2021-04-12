@@ -11,11 +11,13 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class AjoutRapporteurComponent implements OnInit {
   allProfesseurs;
-  adminForm : FormGroup;
+  ajoutRapporteurForm : FormGroup;
   submitted = false;
   returnUrl : string;
   message = '';
   hide = true;
+  idEtudiant: string;
+  idProf: string;
   constructor( 
     private formBulder : FormBuilder,
     private route : ActivatedRoute,
@@ -31,6 +33,32 @@ export class AjoutRapporteurComponent implements OnInit {
       this.allProfesseurs = data;
       
     }) ;
+
+    this.route.queryParamMap
+    .subscribe(params => {
+      console.log(params); 
+
+      this.idEtudiant = params.get('idEtudiant');
+      console.log(this.idEtudiant); 
+      this.idProf = params.get('idProf');
+      console.log(this.idProf); 
+  }) ;
     }
+
+    onSubmit() {
+      this.submitted =true;
+  
+      if (this.ajoutRapporteurForm.invalid) {
+        return;
+      } 
+      else {
+        this.authService.ajoutRapporteur(this.idEtudiant, this.idProf).subscribe(
+          results=>{
+            console.log(results)
+          }
+        )}
+    }
+    
+            
 
 }

@@ -74,6 +74,18 @@ export class AuthService  {
     sessionStorage.removeItem("email");
     sessionStorage.removeItem("token");
   }
+
+  ajoutRapporteur(idProf,idEtudiant) {
+    return this.httpClient
+      .post<any>(`${environment.apiUrl}/ajout-rapporteur`, { idProf,idEtudiant })
+      .pipe(
+        map(userData => {
+          return userData;
+        })
+      );
+  }
+
+
   isAdmin(){
     if(sessionStorage.getItem("role")=="ADMIN")
       return true;

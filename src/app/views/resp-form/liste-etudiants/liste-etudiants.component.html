@@ -27,13 +27,14 @@
               </tr>
             </thead>
             <tbody *ngFor="let etudiant of allEtudiants | orderBy:'nom' | filter:searchText" >
+              
               <tr *ngIf="etudiant.classe===classe ">
                 <td>{{etudiant.nom}}</td>
                 <td>{{etudiant.prenom}}</td>
                 <td>{{etudiant.numTel}}</td>
                 <td>{{etudiant.dateNaissance | date:'dd/MM/yyyy' }}</td>
                 <td>{{etudiant.classe}}</td>
-                <td><a routerLink="/resp-form/ajout-rapporteur">Ajouter rapporteurs</a></td>
+                <td><a routerLink="/resp-form/ajout-rapporteur" [queryParams]="{idEtudiant : etudiant._id}">Ajouter rapporteurs</a></td>
               </tr>
               
             </tbody>
@@ -44,4 +45,3 @@
     </div>
     <!--/.col-->
   </div>
-  

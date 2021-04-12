@@ -5,31 +5,31 @@
           <i class="fa fa-align-justify"></i> Liste des Professeurs
         </div>
         <div class="card-body">
-          <table class="table table-bordered table-striped table-sm">
-            <thead>
-              <tr >
-                <th>Matricule</th>
-                <th>Nom</th>
-                <th>Prenoms</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let professeur of allProfesseurs" >
-              <tr >
-                <td>{{professeur.matricule}}</td>
-                <td>{{professeur.nom}}</td>
-                <td>{{professeur.prenom}}</td>
-                <td><input type="checkbox" ></td>
-              </tr>
-              
-            </tbody>
-          </table>
-          <div align="center">
-            <button  type="submit" class="btn btn-primary px-4"> Ajouter comme rapporteur </button>
-        </div>
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr >
+                  <th>Matricule</th>
+                  <th>Nom</th>
+                  <th>Prenoms</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let professeur of allProfesseurs" >
+                <tr >
+                  <td>{{professeur.matricule}}</td>
+                  <td>{{professeur.nom}}</td>
+                  <td>{{professeur.prenom}}</td>
+                  <td><a routerLink="./" [queryParams]="{idProf : professeur._id, idEtudiant: idEtudiant} " onclick="onSubmit()">
+                        <button type="submit" class="btn btn-primary px-3" >Ajout rapporteur</button>
+                      </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </div>
         
       </div>
     </div>
     <!--/.col-->
   </div>
+  
