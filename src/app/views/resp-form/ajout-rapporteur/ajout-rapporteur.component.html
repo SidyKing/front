@@ -5,6 +5,7 @@
           <i class="fa fa-align-justify"></i> Liste des Professeurs
         </div>
         <div class="card-body">
+          <form >
             <table class="table table-bordered table-striped table-sm">
               <thead>
                 <tr >
@@ -14,22 +15,57 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody *ngFor="let professeur of allProfesseurs" >
-                <tr >
+              <tbody *ngFor="let professeur of allProfesseurs">
+                <tr *ngIf="!(rapporteurs.includes(professeur._id))">
                   <td>{{professeur.matricule}}</td>
                   <td>{{professeur.nom}}</td>
                   <td>{{professeur.prenom}}</td>
-                  <td><a routerLink="./" [queryParams]="{idProf : professeur._id, idEtudiant: idEtudiant} " onclick="onSubmit()">
-                        <button type="submit" class="btn btn-primary px-3" >Ajout rapporteur</button>
-                      </a>
+                  <td><a (click)="onSubmit(professeur._id)"> <button type="submit" id="refresh" class="btn btn-primary px-3" ng-click="onSubmit()" >Ajout rapporteur</button></a>
                   </td>
                 </tr>
               </tbody>
             </table>
+          </form>
         </div>
         
       </div>
     </div>
     <!--/.col-->
   </div>
-  
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Liste des Rapporteurs de l'etudiant
+        </div>
+        <div class="card-body">
+          <form >
+            <table class="table table-bordered table-striped table-sm">
+              <thead>
+                <tr >
+                  <th>Matricule</th>
+                  <th>Nom</th>
+                  <th>Prenoms</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let professeur of allProfesseurs">
+                <tr *ngIf="(rapporteurs.includes(professeur._id))">
+                  <td>{{professeur.matricule}}</td>
+                  <td>{{professeur.nom}}</td>
+                  <td>{{professeur.prenom}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+    <!--/.col-->
+  </div>
+
+  <script>
+    var refresh = window.getElementById('refresh');
+refresh.addEventListener('click', location.reload(), false);
+  </script>

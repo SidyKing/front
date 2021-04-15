@@ -45,6 +45,14 @@ export class AuthService  {
         })
       );
   }
+
+  downloadMemoire(idMemoire): void {
+    this.httpClient
+    .get(`${environment.apiUrl}/download-memoire/`, { responseType: 'blob'}).subscribe(res => {
+      window.open(window.URL.createObjectURL(res));
+    });
+  }
+
   uploadMemoire(fichier) {
     return this.httpClient
       .post<any>(`${environment.apiUrl}/upload-memoire`, { fichier })
@@ -53,6 +61,10 @@ export class AuthService  {
           return userData;
         })
       );
+  }
+  getEncadreurs(idEtudiant) {
+    return this.httpClient
+      .get<any>(`${environment.apiUrl}/encadreur/etudiant/${idEtudiant}`);
   }
   
   listeEtudiant() {

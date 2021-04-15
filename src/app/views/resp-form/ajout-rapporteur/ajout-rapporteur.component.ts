@@ -11,6 +11,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class AjoutRapporteurComponent implements OnInit {
   allProfesseurs;
+  rapporteurs=[];
   ajoutRapporteurForm : FormGroup;
   submitted = false;
   returnUrl : string;
@@ -43,21 +44,27 @@ export class AjoutRapporteurComponent implements OnInit {
       this.idProf = params.get('idProf');
       console.log(this.idProf); 
   }) ;
+
+  this.authService.getEncadreurs(this.idEtudiant).subscribe(data => {
+    this.rapporteurs = data;
+    console.log(this.rapporteurs);
+
+  }) ;
     }
 
-    onSubmit() {
-      this.submitted =true;
-  
-      if (this.ajoutRapporteurForm.invalid) {
-        return;
-      } 
-      else {
-        this.authService.ajoutRapporteur(this.idEtudiant, this.idProf).subscribe(
+    onSubmit(idProf) {
+      this.submitted =true;    
+        this.authService.ajoutRapporteur(idProf, this.idEtudiant)
+        .subscribe(
           results=>{
             console.log(results)
           }
-        )}
-    }
+        )
+        this.router.navigate(['./resp-form/ajout-rapporteur']);
+      }
+        
+
+    
     
             
 
