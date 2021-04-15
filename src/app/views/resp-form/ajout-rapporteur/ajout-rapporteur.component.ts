@@ -60,7 +60,6 @@ export class AjoutRapporteurComponent implements OnInit {
             console.log(results)
           }
         )
-        this.router.navigate(['./resp-form/ajout-rapporteur']);
       }
         
 

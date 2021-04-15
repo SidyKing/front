@@ -20,7 +20,7 @@
                   <td>{{professeur.matricule}}</td>
                   <td>{{professeur.nom}}</td>
                   <td>{{professeur.prenom}}</td>
-                  <td><a (click)="onSubmit(professeur._id)"> <button type="submit" id="refresh" class="btn btn-primary px-3" ng-click="onSubmit()" >Ajout rapporteur</button></a>
+                  <td><a (click)="onSubmit(professeur._id)"> <button type="submit" class="btn btn-primary px-3" >Ajout rapporteur</button></a>
                   </td>
                 </tr>
               </tbody>
@@ -64,8 +64,3 @@
     </div>
     <!--/.col-->
   </div>
-
-  <script>
-    var refresh = window.getElementById('refresh');
-refresh.addEventListener('click', location.reload(), false);
-  </script>
