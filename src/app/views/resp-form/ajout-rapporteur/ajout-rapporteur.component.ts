@@ -51,7 +51,9 @@ export class AjoutRapporteurComponent implements OnInit {
 
   }) ;
     }
-
+    refresh(): void {
+      window.location.reload();
+  }
     onSubmit(idProf) {
       this.submitted =true;    
         this.authService.ajoutRapporteur(idProf, this.idEtudiant)
