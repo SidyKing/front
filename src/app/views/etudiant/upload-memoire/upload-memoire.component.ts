@@ -69,7 +69,7 @@ export class UploadMemoireComponent implements OnInit {
         body.append('idProj', '603c100c99ca52503893c721');
         this.uploadService.upload(body).subscribe(result => {
           console.log(result);
-          this.router.navigate(['/upload-memoire']);
+          this.router.navigate(['/etudiant/upload-memoire']);
         }, error => {
 
         });
@@ -78,6 +78,10 @@ export class UploadMemoireComponent implements OnInit {
       }
     }
   }
+  
+  refresh(): void {
+    window.location.reload();
+}
 
 }
 

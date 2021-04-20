@@ -78,6 +78,9 @@ export class UploadAutorisationComponent implements OnInit {
       }
     }
   }
+  refresh(): void {
+    window.location.reload();
+}
 
 }
 

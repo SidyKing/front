@@ -56,6 +56,8 @@ import { ProfesseurComponent } from './views/professeur/professeur.component';
 import { ProfesseurModule } from './views/professeur/professeur.module';
 import { RespFormComponent } from './views/resp-form/resp-form.component';
 import { RespFormModule } from './views/resp-form/resp-form.module';
+import { DownloadMemoireComponent } from './views/download-memoire/download-memoire.component';
+import { DownloadMemoireModule } from './views/download-memoire/download-memoire.module';
 
 @NgModule({
   imports: [
@@ -80,6 +82,7 @@ import { RespFormModule } from './views/resp-form/resp-form.module';
     AdminModule,
     ProfesseurModule,
     RespFormModule,
+    DownloadMemoireModule,
   ],
   declarations: [
     AppComponent,
@@ -92,7 +95,8 @@ import { RespFormModule } from './views/resp-form/resp-form.module';
     ForgetPasswordComponent,
     AdminComponent,
     ProfesseurComponent,
-    RespFormComponent
+    RespFormComponent,
+    DownloadMemoireComponent
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass : BasicAuthInterceptorService , multi:true},

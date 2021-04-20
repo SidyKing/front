@@ -59,6 +59,10 @@ export const routes: Routes = [
     },
     children: [
       {
+        path: 'download-memoire',
+        loadChildren: () => import('./views/download-memoire/download-memoire.module').then(m => m.DownloadMemoireModule)
+      },
+      {
         path: 'professeur',
         loadChildren: () => import('./views/professeur/professeur.module').then(m => m.ProfesseurModule)
       },

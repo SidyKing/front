@@ -77,6 +77,9 @@ export class UploadRapportComponent implements OnInit {
       }
     }
   }
+  refresh(): void {
+    window.location.reload();
+}
 
 }
 

@@ -14,7 +14,7 @@ export class AuthService  {
 //store JWT token in session
   authenticate(email, password) {
     return this.httpClient
-      .post<any>(`${environment.apiUrl}/etudiant/login`, { email, password })
+      .post<any>(`${environment.apiUrl}/login`, { email, password })
       .pipe(
         map(userData => {
           sessionStorage.setItem("email", userData.email);
@@ -48,11 +48,37 @@ export class AuthService  {
 
   downloadMemoire(idMemoire): void {
     this.httpClient
-    .get(`${environment.apiUrl}/download-memoire/`, { responseType: 'blob'}).subscribe(res => {
+    .get(`${environment.apiUrl}/download-memoire/${idMemoire}`, { responseType: 'blob'})
+    .subscribe(res => {
       window.open(window.URL.createObjectURL(res));
     });
   }
-
+  getMemoire() {
+    return this.httpClient
+      .get<any>(`${environment.apiUrl}/memoire`);
+  }
+  downloadRapport(idRapport): void {
+    this.httpClient
+    .get(`${environment.apiUrl}/download-rapport/${idRapport}`, { responseType: 'blob'})
+    .subscribe(res => {
+      window.open(window.URL.createObjectURL(res));
+    });
+  }
+  getRapport() {
+    return this.httpClient
+      .get<any>(`${environment.apiUrl}/rapportRapporteur`);
+  }
+  downloadAutorisation(idAutorisation): void {
+    this.httpClient
+    .get(`${environment.apiUrl}/download-autorisation/${idAutorisation}`, { responseType: 'blob'})
+    .subscribe(res => {
+      window.open(window.URL.createObjectURL(res));
+    });
+  }
+  getAutorisation() {
+    return this.httpClient
+      .get<any>(`${environment.apiUrl}/autorisation`);
+  }
   uploadMemoire(fichier) {
     return this.httpClient
       .post<any>(`${environment.apiUrl}/upload-memoire`, { fichier })

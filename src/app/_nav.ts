@@ -70,4 +70,19 @@ export const navItems: INavData[] = [
         },
       ]
     },
+    {
+      name: 'Download Memoire',
+      url: '/download-memoire',
+      icon: 'icon-star',
+    },
+    {
+      name: 'Download Rapport',
+      url: '/download-memoire/download-rapport',
+      icon: 'icon-star',
+    },
+    {
+      name: 'Download Autoriastion',
+      url: '/download-memoire/download-autorisation',
+      icon: 'icon-star',
+    },
 ];
